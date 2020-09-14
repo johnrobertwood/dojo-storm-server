@@ -56,9 +56,37 @@ app.get('/addPlayerOnePoint', function (req, res) {
   res.end();
 });
 
+app.get('/subtractPlayerOnePoint', function (req, res) {
+  device.publish('topic_2', JSON.stringify({
+    directive: 'mobile subtract p1 point'
+  }));
+  res.end();
+});
+
+app.get('/clearPlayerOnePoint', function (req, res) {
+  device.publish('topic_2', JSON.stringify({
+    directive: 'mobile clear p1 point'
+  }));
+  res.end();
+});
+
 app.get('/addPlayerTwoPoint', function (req, res) {
   device.publish('topic_2', JSON.stringify({
     directive: 'mobile add p2 point'
+  }));
+  res.end();
+});
+
+app.get('/subtractPlayerTwoPoint', function (req, res) {
+  device.publish('topic_2', JSON.stringify({
+    directive: 'mobile subtract p2 point'
+  }));
+  res.end();
+});
+
+app.get('/clearPlayerTwoPoint', function (req, res) {
+  device.publish('topic_2', JSON.stringify({
+    directive: 'mobile clear p2 point'
   }));
   res.end();
 });
